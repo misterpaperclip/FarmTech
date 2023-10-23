@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      FarmTech - Garden
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-searchbar placeholder="Search here..." [(ngModel)]="searchTerm"></ion-searchbar>
+
+  <div class="card-container" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+
+    <ng-container *ngFor="let tree of filteredTrees">
+      <div class="card-item" style="flex: 0 0 calc(33.333% - 10px); margin: 5px;">
+        <ion-card style="height: 100%;">
+          <img [src]="tree.image" [alt]="tree.alt">
+          <ion-card-header>
+            <ion-card-title>{{ tree.title }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content style="flex: 1;">
+            {{ tree.description }}
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ng-container>
+  </div>
+</ion-content>
